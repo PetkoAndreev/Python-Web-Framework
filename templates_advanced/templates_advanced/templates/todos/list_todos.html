@@ -1,0 +1,17 @@
+{% extends 'shared/base.html' %}
+
+{% load capitalize_filter %}
+{% load todos %}
+
+{% block head_title %}My todos{% endblock %}
+
+{% block content %}
+{#    {% todos_count increase=2 %}#}
+    {% todos_count %}
+    <ul>
+        {% for todo in todos %}
+            {#            filter order matters - capfirst|lower will make the text lower, lower|capfirst will make the text lowr, but first letter will be upper#}
+            <li>{{ todo.text|capitalize:2 }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

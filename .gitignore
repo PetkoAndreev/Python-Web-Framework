@@ -140,3 +140,6 @@ test.py
 #Postgres
 postgres
 postgresql
+
+#SQLLite
+*.sqlite3

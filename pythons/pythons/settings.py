@@ -13,13 +13,16 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.urls import reverse_lazy
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = 'django-insecure-0tx)e3+nm-x9$%+iw_oca6pq6+7uf2o)s5*5p7%f83@q@v-as9'
+# os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'pythons.pythons_auth',
+    'pythons.profiles',
     'pythons.pythons_app',
 ]
 
@@ -84,18 +89,18 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    #     {
+    #         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    #     },
+    #     {
+    #         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    #     },
+    #     {
+    #         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    #     },
+    #     {
+    #         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    #     },
 ]
 
 # Internationalization
@@ -128,3 +133,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = reverse_lazy('sign in')
+
+AUTH_USER_MODEL = 'pythons_auth.PythonsUser'

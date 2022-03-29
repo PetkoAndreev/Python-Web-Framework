@@ -1,0 +1,20 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+
+    <div class="source-create-section">
+        <div class="source-create-container container">
+            <h1>Create a new Source</h1>
+            <form method="post" action="{% url 'create source' %}">
+                {% csrf_token %}
+                {{ form }}
+                {#                <input type="hidden" name="csrfmiddlewaretoken"#}
+                {#                       value="K9hijpfXldb62bgVrN7F2Ay60qn6ED7W7r9v8NTpllI9yLO2o19RzIQ0lsBN2bAE">#}
+                {#                <p><label for="id_name">Name:</label> <input type="text" name="name" maxlength="50" required=""#}
+                {#                                                             id="id_name"></p>#}
+                {#                <p><label for="id_url">Url:</label> <input type="url" name="url" maxlength="200" required=""#}
+                {#                                                           id="id_url"></p>#}
+                <input class="btn" type="submit" value="Create Source">
+            </form>
+        </div>
+    </div>
+{% endblock %}

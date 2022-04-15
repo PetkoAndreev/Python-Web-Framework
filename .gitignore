@@ -141,6 +141,7 @@ dmypy.json
 *.zip
 *.rar
 test.py
+exam_tests/
 
 
 #Postgres
